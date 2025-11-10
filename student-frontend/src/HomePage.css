@@ -1,0 +1,40 @@
+.home-background {
+  position: relative;
+  min-height: 89vh;
+  background: url('/image.jpg') center center/cover no-repeat;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.home-overlay {
+  background: rgba(255, 255, 255, 0.75);
+  border-radius: 16px;
+  margin: 48px 3vw;
+  max-width: 960px;
+  padding: 30px 38px 36px 38px;
+  box-shadow: 0 4px 32px rgba(80,110,180,0.10);
+}
+.home-top-warning {
+  color: #BE2026;
+  font-weight: 700;
+  font-size: 19px;
+  margin-bottom: 6px;
+}
+.warning-main {
+  color: #cf222e;
+  font-weight: bold;
+}
+.home-top-attention {
+  color: #bc440f;
+  font-weight: 600;
+  font-size: 18px;
+  margin-bottom: 18px;
+}
+.attention-main {
+  color: #eb202b;
+  font-weight: bold;
+}
+.home-title {
+  font-size: 1.83em;
+  letter-spacing: 1.3px;
+}

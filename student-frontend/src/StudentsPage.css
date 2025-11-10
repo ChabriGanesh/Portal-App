@@ -1,0 +1,62 @@
+.students-container {
+  max-width: 900px;
+  margin: 40px auto;
+  background: #fff;
+  padding: 24px 32px 32px 32px;
+  border-radius: 12px;
+  box-shadow: 0 2px 16px rgba(30,50,140,0.08);
+}
+.student-form {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 18px;
+  flex-wrap: wrap;
+}
+.student-form input {
+  flex-basis: 180px;
+  padding: 7px 10px;
+  border: 1px solid #c6c8d7;
+  border-radius: 6px;
+}
+.student-form button {
+  padding: 7px 18px;
+  background: #467adb;
+  border: none;
+  color: #fff;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+}
+.student-form button:hover {
+  background: #28469a;
+}
+.student-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.student-table th, .student-table td {
+  border: 1px solid #e3e7ef;
+  padding: 10px 8px;
+  text-align: left;
+}
+.student-table th {
+  background: #f5f9ff;
+  font-size: 1.05em;
+}
+.student-table tr:nth-child(even) {
+  background: #fafbfc;
+}
+.student-table tr.editing-row td {
+  background: #fffae9;
+}
+.student-table button {
+  margin-right: 6px;
+  background: #e3e7ef;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.student-table button:hover {
+  background: #c6c8d7;
+}
