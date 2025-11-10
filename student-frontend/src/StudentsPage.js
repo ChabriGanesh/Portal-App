@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { CSVLink } from 'react-csv';
-import ReactDatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import { Bar } from 'react-chartjs-2';
 import {
