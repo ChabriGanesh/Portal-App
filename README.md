@@ -1,6 +1,6 @@
 # 🎓 **Student Data Portal MERN App**
-https://portal-app1-iota.vercel.app/login
-A complete MERN (MongoDB, Express, React, Node.js) full-stack application for secure student management, attendance tracking, and analytics.
+- https://portal-app1-iota.vercel.app/login
+- A complete MERN (MongoDB, Express, React, Node.js) full-stack application for secure student management, attendance tracking, and analytics.
 
 ---
 
