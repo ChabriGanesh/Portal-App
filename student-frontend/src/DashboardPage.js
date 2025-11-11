@@ -3,22 +3,25 @@ import { useLocation } from 'react-router-dom';
 import { Doughnut } from 'react-chartjs-2';
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 ChartJS.register(ArcElement, Tooltip, Legend);
+const API_BASE = process.env.REACT_APP_API_BASE_URL;
 function DashboardPage() {
   const [students, setStudents] = useState([]);
   const [attendanceRecords, setAttendanceRecords] = useState([]);
   const [loading, setLoading] = useState(true);
   const location = useLocation();
-  const today = new Date().toISOString().slice(0,10);
+  const today = new Date().toISOString().slice(0, 10);
+
   useEffect(() => {
     async function fetchAll() {
       setLoading(true);
-      // Get all students
-      const resS = await fetch('http://localhost:8000/students', {
+      // Use API_BASE for backend calls
+      const resS = await fetch(`${API_BASE}/students`, {
         headers: { Authorization: 'Bearer ' + localStorage.getItem('token') }
       });
       const studentsData = await resS.json();
       setStudents(Array.isArray(studentsData) ? studentsData : []);
-      const resA = await fetch(`http://localhost:8000/attendance/all/${today}`, {
+
+      const resA = await fetch(`${API_BASE}/attendance/all/${today}`, {
         headers: { Authorization: 'Bearer ' + localStorage.getItem('token') }
       });
       const attData = await resA.json();
@@ -27,6 +30,7 @@ function DashboardPage() {
     }
     fetchAll();
   }, [location, today]);
+
   const present = students.filter(stu => {
     const record = attendanceRecords.find(r => r.studentId === stu._id);
     return record && record.present;
@@ -37,9 +41,10 @@ function DashboardPage() {
     labels: ['Present', 'Absent'],
     datasets: [{
       data: [present, absent],
-      backgroundColor: ['#76db7d', '#f17777'],
-    }],
+      backgroundColor: ['#76db7d', '#f17777']
+    }]
   };
+
   return (
     <div style={{
       minHeight: '100vh', display: 'flex', flexDirection: 'column', alignItems: 'center',
@@ -64,7 +69,7 @@ function DashboardPage() {
                 labels: { padding: 22, font: { size: 16 } }
               }
             }
-          }}/>
+          }} />
           <div style={{ fontWeight: 700, fontSize: 20, marginTop: 32, textAlign: 'center' }}>
             Total students: {students.length}
           </div>
