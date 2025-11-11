@@ -2,12 +2,16 @@ import React, { useState } from 'react';
 import ReCAPTCHA from "react-google-recaptcha";
 import './LoginPage.css';
 import { useNavigate } from 'react-router-dom';
-import logo from './logo.png'; 
+import logo from './logo.png';
+
+const API_BASE = process.env.REACT_APP_API_BASE_URL;
+
 function LoginPage({ setUser }) {
   const [loginForm, setLoginForm] = useState({ username: '', password: '' });
   const [loginError, setLoginError] = useState('');
   const [recaptchaValue, setRecaptchaValue] = useState("");
   const navigate = useNavigate();
+
   const handleLogin = async e => {
     e.preventDefault();
     setLoginError('');
@@ -16,10 +20,13 @@ function LoginPage({ setUser }) {
       return;
     }
     try {
-      const res = await fetch('http://localhost:8000/login', {
+      const res = await fetch(`${API_BASE}/login`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(loginForm),
+        body: JSON.stringify({
+          ...loginForm,
+          recaptcha: recaptchaValue
+        }),
       });
       const data = await res.json();
       if (res.ok) {
@@ -35,6 +42,7 @@ function LoginPage({ setUser }) {
       setLoginError('Network error');
     }
   };
+
   return (
     <div className="login-container">
       <img src={logo} alt="App Logo" style={{width: 80, margin: '0 auto 24px', display: 'block'}} />
@@ -58,7 +66,7 @@ function LoginPage({ setUser }) {
           required
         />
         <ReCAPTCHA
-          sitekey={process.env.REACT_APP_RECAPTCHA_SITE_KEY}  
+          sitekey={process.env.REACT_APP_RECAPTCHA_SITE_KEY}
           onChange={value => setRecaptchaValue(value)}
           style={{margin: '20px 0'}}
         />
@@ -68,4 +76,6 @@ function LoginPage({ setUser }) {
     </div>
   );
 }
+
 export default LoginPage;
+
