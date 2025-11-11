@@ -206,7 +206,7 @@ npm start
 
 ## 👤 **Author & Credits**
 
-Student Portal App by **Your Name**. Contributions welcome!
+Student Portal App by **Chabri Ganesh**. Contributions welcome!
 
 ---
 
