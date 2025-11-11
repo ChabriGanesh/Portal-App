@@ -1,4 +1,4 @@
-# 🎓 **Student Portal MERN App**
+# 🎓 **Student Data Portal MERN App**
 
 A complete MERN (MongoDB, Express, React, Node.js) full-stack application for secure student management, attendance tracking, and analytics.
 
@@ -206,7 +206,7 @@ npm start
 
 ## 👤 **Author & Credits**
 
-Student Portal App by **Chabri Ganesh**. Contributions welcome!
+Student Data Portal App by **Chabri Ganesh**. Contributions welcome!
 
 ---
 
