@@ -58,7 +58,7 @@ function LoginPage({ setUser }) {
           required
         />
         <ReCAPTCHA
-          sitekey="6LfUogUsAAAAANIbI-YpfU24BqoMcryn7SvAH_YL"  
+          sitekey={process.env.REACT_APP_RECAPTCHA_SITE_KEY}  
           onChange={value => setRecaptchaValue(value)}
           style={{margin: '20px 0'}}
         />
