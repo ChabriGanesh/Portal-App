@@ -39,7 +39,7 @@ This app streamlines student data management with role-based authentication, att
 ---
 
 ## 🗂️ **Project Folder Structure**
-
+```
 student-portal-app/
 ├── student-management-backend/
 │ ├── index.js // Backend server entry point
@@ -56,10 +56,8 @@ student-portal-app/
 │ │ └── components/ // Reusable UI components
 │ └── .env // Frontend config vars
 └── README.md
-
-
+```
 ---
-
 ## 🔧 **Backend Code Files Explained**
 
 ### `index.js`
@@ -109,12 +107,12 @@ student-portal-app/
 - Allows cross-origin requests from your frontend domains only.
 
 ### `.env` (Backend)
-
+```
 MONGODB_URI=your_mongodb_atlas_connection_string
 JWT_SECRET=your_jwt_secret
 PORT=10000
 
-
+```
 ---
 
 ## 💻 **Frontend Code Files Explained**
@@ -145,23 +143,23 @@ PORT=10000
 - Misc reusable components like tables, buttons, modals.
 
 ### `.env` (Frontend)
-
+```
 REACT_APP_API_BASE_URL=https://portal-app-2.onrender.com/
 REACT_APP_RECAPTCHA_SITE_KEY=your_recaptcha_key
 
-
+```
 ---
 
 ## ⚙️ **Setup Instructions**
 
 ### Clone Repo & Install Dependencies
-
+```
 git clone https://github.com/ChabriGanesh/student-portal-app.git
 cd student-management-backend
 npm install
 cd ../student-frontend
 npm install
-
+```
 
 ### Configure Environment Variables
 
@@ -169,7 +167,7 @@ npm install
 - Frontend `.env`
 
 ### Start Local Servers
-
+```
 Backend
 cd student-management-backend
 npm start
@@ -178,7 +176,7 @@ Frontend (new terminal tab)
 cd ../student-frontend
 npm start
 
-
+```
 ---
 
 ## ☁️ **Deployment Guide**
@@ -212,5 +210,3 @@ Student Portal App by **Your Name**. Contributions welcome!
 
 ---
 
-You can copy-paste this whole README.md content into your GitHub repo directly.  
-If you want detailed explanations of specific files or code snippets, just ask!
