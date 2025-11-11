@@ -15,6 +15,8 @@ import './StudentsPage.css';
 
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
 
+const API_BASE = process.env.REACT_APP_API_BASE_URL;
+
 const batchOptions = ['Batch A', 'Batch B', 'Batch C'];
 
 function StudentsPage({ user }) {
@@ -33,7 +35,7 @@ function StudentsPage({ user }) {
   });
 
   useEffect(() => {
-    fetch('http://localhost:8000/students', {
+    fetch(`${API_BASE}/students`, {
       headers: { Authorization: 'Bearer ' + localStorage.getItem('token') }
     })
       .then(res => res.json())
@@ -43,7 +45,7 @@ function StudentsPage({ user }) {
 
   useEffect(() => {
     const ymd = attendanceDate.toISOString().slice(0, 10);
-    fetch(`http://localhost:8000/attendance/batch/${batch}/${ymd}`, {
+    fetch(`${API_BASE}/attendance/batch/${batch}/${ymd}`, {
       headers: { Authorization: 'Bearer ' + localStorage.getItem('token') }
     })
       .then(res => res.json())
@@ -64,7 +66,7 @@ function StudentsPage({ user }) {
     const formData = new FormData();
     formData.append('photo', file);
     try {
-      const res = await fetch('http://localhost:8000/upload-photo-temp', {
+      const res = await fetch(`${API_BASE}/upload-photo-temp`, {
         method: 'POST',
         body: formData,
         headers: { Authorization: 'Bearer ' + localStorage.getItem('token') }
@@ -79,7 +81,7 @@ function StudentsPage({ user }) {
   const addStudent = async e => {
     e.preventDefault();
     try {
-      await fetch('http://localhost:8000/students', {
+      await fetch(`${API_BASE}/students`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -97,7 +99,7 @@ function StudentsPage({ user }) {
 
   const deleteStudent = async id => {
     try {
-      await fetch(`http://localhost:8000/students/${id}`, {
+      await fetch(`${API_BASE}/students/${id}`, {
         method: 'DELETE',
         headers: { Authorization: 'Bearer ' + localStorage.getItem('token') },
       });
@@ -116,7 +118,7 @@ function StudentsPage({ user }) {
 
   const saveEdit = async id => {
     try {
-      await fetch(`http://localhost:8000/students/${id}`, {
+      await fetch(`${API_BASE}/students/${id}`, {
         method: 'PATCH',
         headers: {
           'Content-Type': 'application/json',
@@ -133,7 +135,7 @@ function StudentsPage({ user }) {
 
   const markAttendance = async (studentId, isPresent) => {
     try {
-      await fetch('http://localhost:8000/attendance', {
+      await fetch(`${API_BASE}/attendance`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -335,7 +337,7 @@ function StudentsPage({ user }) {
                 <td>
                   {s.photoFilename ? (
                     <img
-                      src={`http://localhost:8000/uploads/${s.photoFilename}`}
+                      src={`${API_BASE}/uploads/${s.photoFilename}`}
                       alt={s.name}
                       style={{ width: "48px", height: "48px", borderRadius: "50%" }}
                     />
